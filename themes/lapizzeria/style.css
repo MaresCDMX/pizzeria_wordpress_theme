@@ -1,0 +1,316 @@
+/*
+    Theme Name: La Pizzeria
+    Theme URI: 
+    Description: Tema diseñado para pizzerias.
+    Author: Jesús Mares
+    Author URI: https://marescdmx.github.io/Portfolio-Jesus-Mares.github.io/#portfolio
+    Version: 1.0
+    Tags: pizza, pizzeria, restaurante, css3, html5, responsive, css grid, gutenberg , mobile first, theme, theme-pizzeria
+    License: GNU General Public License v2 or later
+    License URI: http://www.gnu.org/licenses/gpl-2.0.html
+    Text Domain: lapizzeria
+*/
+:root {
+  --fuentePrincipal: "Quicksand", sans-serif;
+  --fuenteHeadings: "Arimo", sans-serif;
+
+  /** Colores */
+  --rojo: #dd4826;
+  --naranja: #f7b917;
+  --amarillo: #fcdf7b;
+
+  --blanco: #fff;
+  --grisOscuro: #504e4e;
+  --grisClaro: #c1c1c1;
+  --negro: #00000;
+
+  --contenedor: 1200px;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--fuentePrincipal);
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+
+p {
+  font-size: 1.4rem;
+  line-height: 3.4rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fuenteHeadings);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 4.8rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+h4 {
+  font-size: 2.4rem;
+}
+
+/** Utilidades */
+.text-center {
+  text-align: center;
+}
+
+/** Globales */
+a {
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.contenedor {
+  width: 95%;
+  max-width: var(--contenedor);
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/** Header */
+.site-header {
+  padding-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .site-header .contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .logo {
+    grid-column: 2 / 3;
+  }
+}
+
+.logo a {
+  display: flex;
+  justify-content: center;
+}
+
+.logo img {
+  max-width: 25rem;
+  width: 75%;
+}
+
+/** Redes sociales */
+.sr-text {
+  display: none;
+}
+
+.sociales ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 3rem);
+  grid-gap: 1rem;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .sociales ul {
+    justify-content: end;
+  }
+}
+
+.sociales a:before {
+  content: '';
+  display: inline-block;
+  height: 3rem;
+  width: 3rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 3rem;
+}
+
+.sociales a[href*="facebook"]::before {
+  background-image: url(img/icons/facebook.svg);
+}
+
+.sociales a[href*="twitter"]::before {
+  background-image: url(img/icons/twitter.svg);
+}
+
+.sociales a[href*="instagram"]::before {
+  background-image: url(img/icons/instagram.svg);
+}
+
+.sociales a[href*="youtube"]::before {
+  background-image: url(img/icons/youtube.svg);
+}
+
+@media (min-width: 768px) {
+  .informacion-header {
+    grid-column: 3 / 4;
+  }
+}
+
+.direccion {
+  padding: 2rem 0;
+}
+
+.direccion p {
+  margin: 0;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .direccion p {
+    text-align: right;
+    line-height: 1.5rem;
+  }
+}
+
+/** Menu Escritorio */
+
+.menu-principal {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .menu-principal {
+    border-top: 1px solid var(--grisClaro);
+    margin-top: 3rem;
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .slicknav_menu {
+    display: none;
+  }
+
+  .menu-sitio .menu {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .menu-sitio .menu li {
+    flex: 1;
+  }
+
+  .menu-sitio .menu li.current_page_item a {
+    border-bottom: .5rem solid var(--rojo);
+  }
+
+  .menu-sitio .menu li:hover {
+    background: var(--naranja);
+  }
+
+  .menu-sitio .menu a {
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    font-family: var(--fuenteHeadings);
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--grisOscuro);
+
+  }
+}
+
+/** Menu Responsive */
+.slicknav_btn {
+  float: left;
+}
+
+.slicknav_menu {
+  background: var(--rojo);
+  text-align: center;
+}
+
+.slicknav_nav a {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--blanco);
+}
+
+.slicknav_nav a:hover {
+  background-color: transparent;
+  color: var(--naranja);
+}
+
+/** Footer */
+
+.site-footer {
+  margin-top: 3rem;
+  padding: 3rem 0;
+  border-top: 1px solid var(--grisClaro);
+
+}
+
+@media (min-width: 768px) {
+  .footer-nav .menu {
+    display: flex;
+    justify-content: center;
+
+  }
+}
+
+.footer-nav .menu li {
+  text-align: center;
+
+}
+
+.footer-nav .menu a {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: var(--negro);
+  font-weight: bold;
+  font-size: 1.4rem;
+  font-family: var(--fuenteHeadings);
+}
+
+.separador {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .separador {
+    display: inline;
+    margin: 0 2rem;
+  }
+
+  .footer-nav li:last-of-type .separador {
+    display: none;
+  }
+}
+
+.site-footer .direccion p {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+}
