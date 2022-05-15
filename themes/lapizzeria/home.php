@@ -18,29 +18,26 @@
               <a href=" <?php the_permalink(); ?> ">
                 <?php the_post_thumbnail('especialidades'); ?>
               </a>
-              <header class="informacion-entrada">
-                  <div class="fecha">
-                      <time><?php the_time('d'); ?></time>
-                      <span><?php the_time('M'); ?></span>
-                  </div>
-                  <div class="titulo-entrada"> 
-                    <h2> <?php the_title(); ?> </h2> 
-                  </div>
-                  
-              </header>
-              <div class="autor">
-                      <p>Escrito por:
-                        <span>
-                          <?php the_author(); ?>
-                        </span> 
-                      </p>
-              </div>
+              <?php
+                
+                  get_template_part('template-parts/informacion', 'entrada');
+                
+              ?>
               <div class="contenido-entrada">
                   <?php the_excerpt(); ?>
                   <a class="boton boton-primario" href="<?php the_permalink(); ?>">Leer más</a>
               </div>
          </article>
       <?php endwhile; ?>
+      <!-- <?php echo paginate_links(); ?> -->
+      <div class="paginacion">
+        <div class="siguiente-entrada">
+          <?php next_posts_link('Siguientes'); ?>
+        </div>
+        <div class="entradas-anteriores">
+          <?php previous_posts_link('Anteriores'); ?>
+        </div>
+      </div>
   </main>    
   <?php get_sidebar( ); ?>
 </div>

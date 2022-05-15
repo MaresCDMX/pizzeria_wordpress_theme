@@ -59,3 +59,26 @@ function lapizzeria_menus() {
   ));
 }
 add_action( 'init', 'lapizzeria_menus' );
+
+// Agregar zona de widgets
+
+function lapizzeria_widgets() {
+  register_sidebar( array(
+    'name' => 'Blog Sidebar',
+    'id' => 'blog_sidebar',
+    'before_widget' => '<div class="widget">',
+    'after_widget' => '</div>',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>',
+  ));
+  
+}
+add_action( 'widgets_init', 'lapizzeria_widgets' );
+// Agregar botones a paginador
+
+function lapizzeria_botones_paginador() {
+  return 'class="boton boton-secundario"';
+}
+
+add_filter( 'next_posts_link_attributes', 'lapizzeria_botones_paginador' );
+add_filter( 'previous_posts_link_attributes', 'lapizzeria_botones_paginador' );
