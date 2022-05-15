@@ -1,5 +1,39 @@
 <?php
 
+function lapizzeria_setup() {
+  //Imagenes destacadas
+  add_theme_support('post-thumbnails');
+  //Tamaño de imagen destacada
+  set_post_thumbnail_size(825, 510, true);
+  //Tamaño personalizado de imagen destacada
+  add_image_size('nosotros', 437, 291, true);
+  //Tamaño personalizado de imagen destacada
+  add_image_size('especialidades', 768, 515, true);
+  //Tamaño personalizado de imagen destacada
+  add_image_size('especialidades-portrait', 435, 526, true);
+  //Tamaño personalizado de imagen destacada
+  add_image_size('galeria', 437, 291, true);
+  //Tamaño personalizado de imagen destacada
+  add_image_size('galeria-thumb', 576, 515, true);
+  //Tamaño personalizado de imagen destacada
+  add_image_size('blog', 437, 291, true);
+  //Tamaño personalizado de imagen destacada
+  add_image_size('blog-thumb', 576, 515, true);
+  //Tamaño personalizado de imagen destacada
+  add_image_size('slider', 1600, 600, true);
+  //Tamaño personalizado de imagen destacada
+  add_image_size('testimoniales', 768, 515, true);
+  //Tamaño personalizado de imagen destacada
+  add_image_size('testimoniales-thumb', 576, 515, true);
+  //Tamaño personalizado de imagen destacada
+  add_image_size('logo', 768, 515, true);
+  //Tamaño personalizado de imagen destacada
+  add_image_size('logo-thumb', 576, 515, true);
+
+  
+}
+add_action( 'after_setup_theme', 'lapizzeria_setup' );
+
 /** CSS y JS */
 
 function lapizzeria_styles() {
