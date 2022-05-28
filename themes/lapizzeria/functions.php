@@ -1,6 +1,54 @@
 <?php
 
 function lapizzeria_setup() {
+  /** Gutenberg */
+
+  // Soporte a estilos por default de Gutenberg en el tema
+
+  add_theme_support( 'wp-block-styles' );
+
+  // Paleta de Colores
+  add_theme_support('editor-color-palette', array(
+    array(
+      'name' => 'Amarillo',
+      'slug' => 'amarillo',
+      'color' => '#fcdf7b
+      '
+    ),
+    array(
+      'name' => 'Verde',
+      'slug' => 'verde',
+      'color' => '#127427'
+    ),
+    array(
+      'name' => 'Rojo',
+      'slug' => 'rojo',
+      'color' => '#dd4826'
+    ),
+    array(
+      'name' => 'Naranja',
+      'slug' => 'naranja',
+      'color' => '#f7b917'
+    ),
+    array(
+      'name' => 'Gris',
+      'slug' => 'gris',
+      'color' => '#c1c1c1'
+    ),
+    array(
+      'name' => 'Blanco',
+      'slug' => 'blanco',
+      'color' => '#FFFFFF'
+    ),
+    array(
+      'name' => 'Negro',
+      'slug' => 'negro',
+      'color' => '#000000'
+    )
+  ));
+  //Deshabilitar el editor de colores
+  add_theme_support( 'disable-custom-colors' );
+
   //Imagenes destacadas
   add_theme_support('post-thumbnails');
   //Tamaño de imagen destacada

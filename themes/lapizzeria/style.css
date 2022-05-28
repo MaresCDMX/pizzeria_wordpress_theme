@@ -717,3 +717,9 @@ p.comment-form-cookies-consent label {
   border: none;
   border-top: .5rem solid var(--rojo);
 }
+
+/** Texto botones paginacion */
+.paginacion .siguiente-entrada a,
+.paginacion .entradas-anteriores a {
+  color: var(--negro);
+}
