@@ -1,12 +1,61 @@
-/*
-Theme Name: La Pizzeria 
-Theme URI: 
-Description: Tema diseñado para pizzerias. 
-Author: Jesús Mares 
-Author URI: https: //marescdmx.github.io/Portfolio-Jesus-Mares.github.io/#portfolio
-Version: 1.0 
-Tags: pizza, pizzeria, restaurante, css3, html5, responsive, css grid, gutenberg, mobile first, theme,theme-pizzeria 
-License: GNU General Public License v2 or later 
-License URI: http: //www.gnu.org/licenses/gpl-2.0.html
-Text Domain: lapizzeria
-*/
+:root {
+  --fuentePrincipal: "Quicksand", sans-serif;
+  --fuenteHeadings: "Arimo", sans-serif;
+
+  /** Colores */
+  --rojo: #dd4826;
+  --naranja: #f7b917;
+  --amarillo: #fcdf7b;
+
+  --blanco: #fff;
+  --grisOscuro: #504e4e;
+  --grisClaro: #c1c1c1;
+  --negro: #00000;
+
+  --contenedor: 1200px;
+}
+
+.cajas-nosotros {
+  display: grid !important;
+  gap: 0em !important;
+}
+
+.cajas-nosotros .box {
+  display: grid;
+  align-items: center;
+  padding: 4rem 2rem 0rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .cajas-nosotros {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+}
+
+.cajas-nosotros .wp-block-column {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+  margin: 0 !important;
+  overflow: hidden;
+}
+
+.cajas-nosotros .wp-block-column .box p {
+  line-height: 1.4rem !important;
+  font-size: 1.2rem !important;
+
+}
+
+.cajas-nosotros .wp-block-column .box h2 {
+  margin: 0;
+  font-size: 2.5rem !important;
+}
+
+.cajas-nosotros img {
+  display: block;
+  object-fit: cover;
+  height: 30rem;
+}
+
+html :where(img[class*="wp-image-"]) {
+  height: 24rem !important;
+}

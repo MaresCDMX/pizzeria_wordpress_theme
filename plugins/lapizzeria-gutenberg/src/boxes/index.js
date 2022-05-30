@@ -1,5 +1,11 @@
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls, ColorPalette } = window.wp.blockEditor;
+const {
+  RichText,
+  InspectorControls,
+  ColorPalette,
+  BlockControls,
+  AlignmentToolbar,
+} = window.wp.blockEditor;
 const { PanelBody } = window.wp.components;
 
 /**
@@ -34,12 +40,19 @@ registerBlockType("lapizzeria/boxes", {
     colorFondo: {
       type: "string",
     },
+    colorText: {
+      type: "string",
+    },
+    textAlignment: {
+      type: "string",
+      default: "center",
+    },
   },
   edit: (props) => {
     //Extraer los valores del atributo desde props
     console.log(props);
     const {
-      attributes: { headingBox, textBox, colorFondo },
+      attributes: { headingBox, textBox, colorFondo, colorText, textAlignment },
       setAttributes,
     } = props;
     console.log(headingBox);
@@ -51,6 +64,12 @@ registerBlockType("lapizzeria/boxes", {
     };
     const onChangeColor = (newColor) => {
       setAttributes({ colorFondo: newColor });
+    };
+    const onChangeTextColor = (newColor) => {
+      setAttributes({ colorText: newColor });
+    };
+    const onChangeTextAlignment = (newAlignment) => {
+      setAttributes({ textAlignment: newAlignment });
     };
     return (
       <>
@@ -65,17 +84,35 @@ registerBlockType("lapizzeria/boxes", {
               </div>
             </div>
           </PanelBody>
+          <PanelBody title={"Color de Texto"} initalOpen={false}>
+            <div className="components-base-control">
+              <div className="components-base-control__field">
+                <label className="components-base-control__label">
+                  Color de Texto
+                </label>
+                <ColorPalette onChange={onChangeTextColor} value={colorText} />
+              </div>
+            </div>
+          </PanelBody>
         </InspectorControls>
-        <div className="box" style={{ backgroundColor: colorFondo }}>
+
+        <BlockControls>
+          <AlignmentToolbar onChange={onChangeTextAlignment} />
+        </BlockControls>
+
+        <div
+          className="box"
+          style={{ backgroundColor: colorFondo, textAlign: textAlignment }}
+        >
           {" "}
-          <h2>
+          <h2 style={{ color: colorText }}>
             <RichText
               placeholder="Agrega el encabezado"
               onChange={onChangeHeadingBox}
               value={headingBox}
             />
           </h2>{" "}
-          <p>
+          <p style={{ color: colorText }}>
             <RichText
               placeholder="Agrega el contenido"
               onChange={onChangeTextBox}
@@ -88,16 +125,19 @@ registerBlockType("lapizzeria/boxes", {
   },
   save: (props) => {
     const {
-      attributes: { headingBox, textBox, colorFondo },
+      attributes: { headingBox, textBox, colorFondo, colorText, textAlignment },
     } = props;
     return (
       <>
-        <div className="box" style={{ backgroundColor: colorFondo }}>
+        <div
+          className="box"
+          style={{ backgroundColor: colorFondo, textAlign: textAlignment }}
+        >
           {" "}
-          <h2>
+          <h2 style={{ color: colorText }}>
             <RichText.Content value={headingBox} />
           </h2>{" "}
-          <p>
+          <p style={{ color: colorText }}>
             <RichText.Content value={textBox} />
           </p>
         </div>
