@@ -8,6 +8,10 @@
 
 }
 
+.texto-primario {
+  color: var(--rojo);
+}
+
 .cajas-nosotros .box {
   display: grid;
   align-items: center;
@@ -57,4 +61,44 @@ html :where(.wp-block) {
   height: 24rem !important;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+/* Galeria */
+
+.galeria-pizzeria-item {
+  position: relative;
+}
+
+.galeria-pizzeria-item .borrar-imagen {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  line-height: 2.5rem;
+  font-size: 1.5rem;
+  color: var(--rojo);
+  cursor: pointer;
+}
+
+html :where(.editor-styles-wrapper) ol,
+html :where(.editor-styles-wrapper) ul {
+  padding: 0;
+  margin: 0;
+}
+
+.lapizzeria-agregar-imagen {
+  display: block;
+  margin: 0 auto !important;
+}
+
+.block-editor__container img {
+  height: 120px !important;
+  width: 180px !important;
 }

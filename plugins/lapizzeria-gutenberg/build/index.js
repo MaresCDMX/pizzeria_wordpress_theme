@@ -1405,6 +1405,358 @@ registerBlockType("lapizzeria/boxes", {
 
 /***/ }),
 
+/***/ "./src/galeria/index.js":
+/*!******************************!*\
+  !*** ./src/galeria/index.js ***!
+  \******************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../logo.svg */ "./src/logo.svg");
+
+const {
+  registerBlockType
+} = wp.blocks;
+const {
+  MediaUpload
+} = window.wp.blockEditor;
+const {
+  IconButton
+} = window.wp.components; //Logo para el bloque
+
+
+registerBlockType("lapizzeria/galeria", {
+  title: "La Pizzeria Galeria",
+  icon: {
+    src: _logo_svg__WEBPACK_IMPORTED_MODULE_1__.ReactComponent
+  },
+  category: "lapizzeria",
+  attributes: {
+    imagenes: {
+      type: "array"
+    }
+  },
+  edit: props => {
+    //Extraer los valores
+    const {
+      attributes: {
+        imagenes = []
+      },
+      setAttributes
+    } = props;
+
+    const borrarImagen = imagenIndex => {
+      setAttributes({
+        imagenes: imagenes.filter((_, i) => i !== imagenIndex)
+      });
+    };
+
+    const onSelectNuevaImagen = newImage => {
+      const imagen = {
+        thumb: newImage.sizes.medium.url,
+        full: newImage.sizes.full.url,
+        id: newImage.id
+      };
+      setAttributes({
+        imagenes: [...imagenes, imagen]
+      });
+    };
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "galeria-pizzeria"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+      onSelect: onSelectNuevaImagen,
+      type: "image",
+      render: _ref => {
+        let {
+          open
+        } = _ref;
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(IconButton, {
+          className: "lapizzeria-agregar-imagen",
+          onClick: open,
+          icon: "format-image",
+          showTooltip: "true",
+          label: "Agregar Imagen"
+        });
+      }
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+      className: "texto-primario"
+    }, "Galer\xEDa"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+      className: "galeria-pizzeria-lista"
+    }, imagenes.map((imagen, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+      className: "galeria-pizzeria-item",
+      key: index
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "borrar-imagen",
+      onClick: () => borrarImagen(index)
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "dashicons dashicons-trash"
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: imagen.thumb
+    })))));
+  },
+  save: props => {
+    const {
+      attributes: {
+        imagenes = []
+      }
+    } = props;
+
+    if (imagenes.length === 0) {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "No hay imagenes");
+    }
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "galeria-pizzeria"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+      className: "texto-primario"
+    }, "Galer\xEDa"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+      className: "galeria-pizzeria-lista"
+    }, imagenes.map(imagen => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+      className: "galeria-pizzeria-item"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: imagen.full,
+      "data-lightbox": "galeria"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: imagen.thumb
+    }))))));
+  }
+});
+
+/***/ }),
+
+/***/ "./src/hero/index.js":
+/*!***************************!*\
+  !*** ./src/hero/index.js ***!
+  \***************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../logo.svg */ "./src/logo.svg");
+
+const {
+  registerBlockType
+} = wp.blocks; //Logo para el bloque
+
+
+registerBlockType("lapizzeria/hero", {
+  title: "La Pizzeria Hero",
+  icon: {
+    src: _logo_svg__WEBPACK_IMPORTED_MODULE_1__.ReactComponent
+  },
+  category: "lapizzeria",
+  edit: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "La Pizzeria Hero Editor");
+  },
+  save: props => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "La Pizzeria Hero Frontend");
+  }
+});
+
+/***/ }),
+
+/***/ "./src/menu/index.js":
+/*!***************************!*\
+  !*** ./src/menu/index.js ***!
+  \***************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../logo.svg */ "./src/logo.svg");
+
+const {
+  registerBlockType
+} = wp.blocks;
+const {
+  withSelect
+} = wp.data;
+const {
+  RichText,
+  InspectorControls
+} = window.wp.blockEditor;
+const {
+  PanelBody,
+  RangeControl,
+  SelectControl,
+  TextControl
+} = window.wp.components; //Logo para el bloque
+
+
+registerBlockType("lapizzeria/menu", {
+  title: "La Pizzeria Menu",
+  icon: {
+    src: _logo_svg__WEBPACK_IMPORTED_MODULE_1__.ReactComponent
+  },
+  category: "lapizzeria",
+  attributes: {
+    cantidadMostrar: {
+      type: "number"
+    },
+    categoriaMenu: {
+      type: "number"
+    },
+    tituloBloque: {
+      type: "string"
+    }
+  },
+  edit: withSelect((select, props) => {
+    //Extraer los valores
+    const {
+      attributes: {
+        cantidadMostrar,
+        categoriaMenu,
+        tituloBloque
+      },
+      setAttributes
+    } = props;
+
+    const onChangeCantidadMostrar = newCantidadMostrar => {
+      setAttributes({
+        cantidadMostrar: parseInt(newCantidadMostrar)
+      });
+    };
+
+    const onChangeCategoriaMenu = newCategoriaMenu => {
+      setAttributes({
+        categoriaMenu: newCategoriaMenu
+      });
+    };
+
+    const onChangeTituloBloque = newTituloBloque => {
+      setAttributes({
+        tituloBloque: newTituloBloque
+      });
+    };
+
+    return {
+      // Enviar una petición/consulta a la API para obtener los datos
+      especialidades: select("core").getEntityRecords("postType", "especialidades", {
+        "categoria-menu": categoriaMenu,
+        per_page: cantidadMostrar || 4
+      }),
+      categorias: select("core").getEntityRecords("taxonomy", "categoria-menu"),
+      onChangeCantidadMostrar,
+      onChangeCategoriaMenu,
+      onChangeTituloBloque,
+      props
+    };
+  })(_ref => {
+    let {
+      especialidades,
+      categorias,
+      onChangeCantidadMostrar,
+      onChangeCategoriaMenu,
+      onChangeTituloBloque,
+      props
+    } = _ref;
+    //Extraer los valores del atributo desde props
+    const {
+      attributes: {
+        cantidadMostrar,
+        categoriaMenu,
+        tituloBloque
+      }
+    } = props; // Verificar especialidades
+
+    if (!especialidades) {
+      return "Cargando...";
+    } // Si no hay especialidades
+
+
+    if (especialidades && especialidades.length === 0) {
+      return "No hay resultados";
+    } // Verificar categorias
+
+
+    if (!categorias) {
+      return "No hay categorias";
+    } // Si no hay categorias
+
+
+    if (categorias && categorias.length === 0) {
+      return "No hay resultados";
+    } //Generar label y value para el select de categorias
+
+
+    categorias.forEach(categoria => {
+      categoria["label"] = categoria.name;
+      categoria["value"] = categoria.id;
+    }); //Arreglo con valores por defaulT
+
+    const opcionDefault = [{
+      value: "",
+      label: "-- Todos --"
+    }];
+    const listadoCategorias = [...opcionDefault, ...categorias];
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(PanelBody, {
+      title: "Cantidad a Mostrar",
+      initalOpen: true
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "components-base-control"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "components-base-control__field"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+      className: "components-base-control__label"
+    }, "Cantidad a Mostrar"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RangeControl, {
+      onChange: onChangeCantidadMostrar,
+      min: 2,
+      max: 10,
+      value: cantidadMostrar || 4
+    })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(PanelBody, {
+      title: "Categoría de Especialidad",
+      initalOpen: false
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "components-base-control"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "components-base-control__field"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+      className: "components-base-control__label"
+    }, "Categor\xEDa de Especialidad"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(SelectControl, {
+      options: listadoCategorias,
+      onChange: onChangeCategoriaMenu,
+      value: categoriaMenu
+    })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(PanelBody, {
+      title: "Titulo Bloque",
+      initalOpen: false
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "components-base-control"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "components-base-control__field"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+      className: "components-base-control__label"
+    }, "Titulo Bloque"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
+      onChange: onChangeTituloBloque,
+      value: tituloBloque
+    }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+      className: "titulo-menu"
+    }, tituloBloque), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+      className: "nuestro-menu"
+    }, especialidades.map(especialidad => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: especialidad.imagen_destacada,
+      alt: "imagen destacada"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "platillo"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "precio-titulo"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, especialidad.title.rendered), " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "$ ", especialidad.precio)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "contenido-platillo"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+      value: especialidad.content.rendered
+    }))))))));
+  }),
+  save: () => {
+    return null;
+  }
+});
+
+/***/ }),
+
 /***/ "react":
 /*!************************!*\
   !*** external "React" ***!
@@ -1501,6 +1853,12 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _boxes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./boxes */ "./src/boxes/index.js");
+/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menu */ "./src/menu/index.js");
+/* harmony import */ var _galeria__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./galeria */ "./src/galeria/index.js");
+/* harmony import */ var _hero__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./hero */ "./src/hero/index.js");
+
+
+
 
 }();
 /******/ })()

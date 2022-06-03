@@ -102,6 +102,10 @@ img {
   text-align: center;
 }
 
+.texto-primario {
+  color: var(--rojo);
+}
+
 .seccion {
   padding: 1rem;
 }

@@ -59,3 +59,103 @@
 html :where(img[class*="wp-image-"]) {
   height: 24rem !important;
 }
+
+/**
+ * Estilos para el bloque del menu
+ */
+
+.titulo-menu {
+  color: var(--rojo);
+  font-family: var(--fuenteHeadings);
+  text-align: left;
+  font-size: 3rem;
+  font-weight: 700;
+
+}
+
+.nuestro.menu li {
+  margin-bottom: 2rem !important;
+}
+
+@media (min-width: 768px) {
+  .nuestro-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none !important;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nuestro-menu li {
+    flex: 0 0 calc(50% - 2rem);
+  }
+}
+
+.precio-titulo {
+  border-bottom: 1px solid var(--grisClaro);
+  padding-bottom: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.precio-titulo h3 {
+  font-weight: 700;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.precio-titulo p {
+  color: var(--naranja);
+  font-family: var(--fuenteHeadings);
+  font-size: 2.4rem !important;
+  font-weight: 700;
+  margin: 0;
+}
+
+.contenido-platillo p {
+  color: #3d3d3d;
+  line-height: 2;
+  font-size: 1.4rem;
+  font-family: var(--fuenteHeadings);
+  text-align: left;
+}
+
+/**
+ * Estilos para el bloque de la galería
+  */
+
+.galeria-pizzeria h2 {
+  color: var(--rojo);
+  font-weight: 700;
+
+}
+
+.galeria-pizzeria-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  list-style: none;
+}
+
+@media (min-width: 1100px) {
+  .galeria-pizzeria-item img {
+    display: block;
+    height: 120px !important;
+    width: 180px !important;
+  }
+}
+
+
+
+
+
+.wp-block-lapizzeria-galeria {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+  margin: 0 !important;
+  overflow: hidden;
+}
