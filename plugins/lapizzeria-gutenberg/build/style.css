@@ -149,7 +149,38 @@ html :where(img[class*="wp-image-"]) {
   }
 }
 
+/** Botones */
 
+.boton {
+  display: block;
+  flex: 1;
+  padding: 1rem 3rem;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: var(--fuenteHeadings);
+  text-transform: uppercase;
+  border: none;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .boton {
+    display: inline-block;
+    flex: 0 0 auto;
+
+  }
+}
+
+.boton-primario {
+  background-color: var(--rojo);
+  color: var(--blanco);
+}
+
+.boton-secundario {
+  background-color: var(--naranja);
+}
 
 
 
@@ -158,4 +189,37 @@ html :where(img[class*="wp-image-"]) {
   grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
   margin: 0 !important;
   overflow: hidden;
+}
+
+/** Hero Block */
+.hero-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem;
+  background-size: cover;
+  margin-top: 2rem;
+}
+
+.hero-block .titulo {
+  font-size: 1.2em;
+}
+
+
+@media (min-width: 768px) {
+  .hero-block .titulo {
+    font-size: 3em;
+  }
+}
+
+.hero-block h1,
+.hero-block p {
+  color: var(--blanco);
+  margin: 0.5rem;
+}
+
+.alignfull {
+  margin: 0 calc(50% - 50vw);
+  max-width: 100vw;
+
 }

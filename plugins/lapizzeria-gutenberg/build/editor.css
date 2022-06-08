@@ -102,3 +102,15 @@ html :where(.editor-styles-wrapper) ul {
   height: 120px !important;
   width: 180px !important;
 }
+
+.components-button.has-icon .dashicon {
+  color: var(--blanco);
+}
+
+.components-button.components-toolbar__control.has-icon {
+  color: white;
+}
+
+.components-base-control .block-editor-url-input .css-1wzzj1a {
+  color: black;
+}
