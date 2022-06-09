@@ -135,25 +135,27 @@ registerBlockType("lapizzeria/hero", {
               />
             )}
           />
-          <h1 className="titulo">
-            <RichText
-              placeholder="Agrega el Titulo del Hero"
-              onChange={onChangeTitle}
-              value={titulo}
-            />
-          </h1>
-          <p className="texto">
-            <RichText
-              placeholder="Agrega el Texto del Hero"
-              onChange={onChangeText}
-              value={texto}
-            />
-          </p>
-          <div>
-            <a href={urlHero} className="boton boton-primario">
-              Leer Más
-            </a>
-            <URLInputButton onChange={onChangeUrl} url={urlHero} />
+          <div className="contenido-hero">
+            <h1 className="titulo">
+              <RichText
+                placeholder="Agrega el Titulo del Hero"
+                onChange={onChangeTitle}
+                value={titulo}
+              />
+            </h1>
+            <p className="texto">
+              <RichText
+                placeholder="Agrega el Texto del Hero"
+                onChange={onChangeText}
+                value={texto}
+              />
+            </p>
+            <div>
+              <a href={urlHero} className="boton boton-primario">
+                Leer Más
+              </a>
+              <URLInputButton onChange={onChangeUrl} url={urlHero} />
+            </div>
           </div>
         </div>
       </>
@@ -179,16 +181,18 @@ registerBlockType("lapizzeria/hero", {
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),url(${imagenHero}`,
         }}
       >
-        <h1 className="titulo">
-          <RichText.Content value={titulo} />
-        </h1>
-        <p className="texto">
-          <RichText.Content value={texto} />
-        </p>
-        <div>
-          <a href={urlHero} className="boton boton-primario">
-            Leer Más
-          </a>
+        <div className="contenido-hero">
+          <h1 className="titulo">
+            <RichText.Content value={titulo} />
+          </h1>
+          <p className="texto">
+            <RichText.Content value={texto} />
+          </p>
+          <div>
+            <a href={urlHero} className="boton boton-primario">
+              Leer Más
+            </a>
+          </div>
         </div>
       </div>
     );

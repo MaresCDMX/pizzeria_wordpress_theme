@@ -1681,7 +1681,9 @@ registerBlockType("lapizzeria/hero", {
           label: "Seleccionar imagen"
         });
       }
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", {
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "contenido-hero"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", {
       className: "titulo"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
       placeholder: "Agrega el Titulo del Hero",
@@ -1699,7 +1701,7 @@ registerBlockType("lapizzeria/hero", {
     }, "Leer M\xE1s"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(URLInputButton, {
       onChange: onChangeUrl,
       url: urlHero
-    }))));
+    })))));
   },
   save: props => {
     const {
@@ -1719,6 +1721,8 @@ registerBlockType("lapizzeria/hero", {
         height: `${alturaHero || 500}px`,
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),url(${imagenHero}`
       }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "contenido-hero"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", {
       className: "titulo"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
@@ -1730,7 +1734,7 @@ registerBlockType("lapizzeria/hero", {
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       href: urlHero,
       className: "boton boton-primario"
-    }, "Leer M\xE1s")));
+    }, "Leer M\xE1s"))));
   }
 });
 
