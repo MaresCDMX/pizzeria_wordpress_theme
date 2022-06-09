@@ -1569,17 +1569,14 @@ registerBlockType("lapizzeria/hero", {
     },
     titulo: {
       type: "string",
-      source: "html",
       selector: ".titulo h1"
     },
     texto: {
       type: "string",
-      source: "html",
       selector: ".texto p"
     },
     urlHero: {
       type: "string",
-      source: "attribute",
       attribute: "href"
     },
     alineacion: {
@@ -1718,28 +1715,19 @@ registerBlockType("lapizzeria/hero", {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "hero-block",
       style: {
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),url(${imagenHero})`,
-        height: `${alturaHero || 500}px`
+        textAlign: alineacion,
+        height: `${alturaHero || 500}px`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),url(${imagenHero}`
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", {
-      className: "titulo",
-      style: {
-        textAlign: alineacion
-      }
+      className: "titulo"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
       value: titulo
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-      className: "texto",
-      style: {
-        textAlign: alineacion
-      }
+      className: "texto"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
       value: texto
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      style: {
-        textAlign: alineacion
-      }
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       href: urlHero,
       className: "boton boton-primario"
     }, "Leer M\xE1s")));

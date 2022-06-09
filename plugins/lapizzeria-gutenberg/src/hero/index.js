@@ -22,17 +22,14 @@ registerBlockType("lapizzeria/hero", {
     },
     titulo: {
       type: "string",
-      source: "html",
       selector: ".titulo h1",
     },
     texto: {
       type: "string",
-      source: "html",
       selector: ".texto p",
     },
     urlHero: {
       type: "string",
-      source: "attribute",
       attribute: "href",
     },
     alineacion: {
@@ -177,17 +174,18 @@ registerBlockType("lapizzeria/hero", {
       <div
         className="hero-block"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),url(${imagenHero})`,
+          textAlign: alineacion,
           height: `${alturaHero || 500}px`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),url(${imagenHero}`,
         }}
       >
-        <h1 className="titulo" style={{ textAlign: alineacion }}>
+        <h1 className="titulo">
           <RichText.Content value={titulo} />
         </h1>
-        <p className="texto" style={{ textAlign: alineacion }}>
+        <p className="texto">
           <RichText.Content value={texto} />
         </p>
-        <div style={{ textAlign: alineacion }}>
+        <div>
           <a href={urlHero} className="boton boton-primario">
             Leer Más
           </a>

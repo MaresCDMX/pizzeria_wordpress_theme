@@ -178,6 +178,10 @@ html :where(img[class*="wp-image-"]) {
   color: var(--blanco);
 }
 
+.boton.boton-primario {
+  color: var(--blanco);
+}
+
 .boton-secundario {
   background-color: var(--naranja);
 }
