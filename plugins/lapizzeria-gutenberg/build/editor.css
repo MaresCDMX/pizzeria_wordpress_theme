@@ -98,9 +98,8 @@ html :where(.editor-styles-wrapper) ul {
   margin: 0 auto !important;
 }
 
-.block-editor__container img {
-  height: 120px !important;
-  width: 180px !important;
+.imagen-ingredientes img {
+  width: 100% !important;
 }
 
 .components-button.has-icon .dashicon {
@@ -113,4 +112,23 @@ html :where(.editor-styles-wrapper) ul {
 
 .components-base-control .block-editor-url-input .css-1wzzj1a {
   color: black;
+}
+
+/* Texto bloque ingredientes */
+
+html :where(.editor-styles-wrapper) h1,
+
+html :where(.editor-styles-wrapper) p,
+html :where(.editor-styles-wrapper) select {
+  color: white;
+
+}
+
+.texto-ingredientes .titulo {
+  font-size: 2em;
+}
+
+.precio-titulo h3 {
+  font-size: 1.2rem;
+
 }

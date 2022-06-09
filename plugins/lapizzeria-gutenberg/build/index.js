@@ -1740,6 +1740,209 @@ registerBlockType("lapizzeria/hero", {
 
 /***/ }),
 
+/***/ "./src/ingredientes/index.js":
+/*!***********************************!*\
+  !*** ./src/ingredientes/index.js ***!
+  \***********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../logo.svg */ "./src/logo.svg");
+
+const {
+  registerBlockType
+} = wp.blocks;
+const {
+  MediaUpload,
+  RichText,
+  URLInputButton
+} = window.wp.editor;
+const {
+  IconButton
+} = window.wp.components; //Logo para el bloque
+
+
+registerBlockType("lapizzeria/ingedientes", {
+  title: "La Pizzeria Ingredientes",
+  icon: {
+    src: _logo_svg__WEBPACK_IMPORTED_MODULE_1__.ReactComponent
+  },
+  category: "lapizzeria",
+  attributes: {
+    imageBg: {
+      type: "string",
+      selector: ".ingredientes-bloque"
+    },
+    imageIngredientes: {
+      type: "string",
+      selector: ".imagen-ingredientes img",
+      default: _logo_svg__WEBPACK_IMPORTED_MODULE_1__.ReactComponent
+    },
+    title: {
+      type: "string",
+      selector: ".texto-ingredientes h1"
+    },
+    text: {
+      type: "string",
+      selector: ".texto-ingredientes p"
+    },
+    urlHero: {
+      type: "string",
+      attribute: "href"
+    }
+  },
+  supports: {
+    align: ["wide", "full"]
+  },
+  edit: props => {
+    const {
+      attributes: {
+        imageBg,
+        imageIngredientes,
+        title,
+        text,
+        urlHero
+      },
+      setAttributes
+    } = props;
+
+    const onSelectImage = newImage => {
+      setAttributes({
+        imageBg: newImage.sizes.full.url
+      });
+    };
+
+    const onSelectImageIngredientes = newImage => {
+      setAttributes({
+        imageIngredientes: newImage.sizes.full.url
+      });
+    };
+
+    const onChangeTitle = newTitle => {
+      setAttributes({
+        title: newTitle
+      });
+    };
+
+    const onChangeText = newText => {
+      setAttributes({
+        text: newText
+      });
+    };
+
+    const onChangeUrl = newUrl => {
+      setAttributes({
+        urlHero: newUrl
+      });
+    };
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "ingredientes-bloque",
+      style: {
+        height: `${450}px`,
+        backgroundImage: `url(${imageBg}`
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+      onSelect: onSelectImage,
+      type: "image",
+      render: _ref => {
+        let {
+          open
+        } = _ref;
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(IconButton, {
+          className: "lapizzeria-agregar-imagen",
+          onClick: open,
+          icon: "format-image",
+          showTooltip: "true",
+          label: "Seleccionar imagen"
+        });
+      }
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "contenido-ingredientes"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "texto-ingredientes"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", {
+      className: "titulo"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
+      placeholder: "Agrega el T\xEDtulo del Hero",
+      value: title,
+      onChange: onChangeTitle
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "text"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
+      placeholder: "Agrega el Texto del Hero",
+      value: text,
+      onChange: onChangeText
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: urlHero,
+      className: "boton boton-secundario"
+    }, "Leer M\xE1s"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(URLInputButton, {
+      onChange: onChangeUrl,
+      url: urlHero
+    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "imagen-ingredientes"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: imageIngredientes
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+      onSelect: onSelectImageIngredientes,
+      type: "image",
+      render: _ref2 => {
+        let {
+          open
+        } = _ref2;
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(IconButton, {
+          className: "lapizzeria-agregar-imagen",
+          onClick: open,
+          icon: "format-image",
+          showTooltip: "true",
+          label: "Seleccionar imagen"
+        });
+      }
+    }))));
+  },
+  save: props => {
+    const {
+      attributes: {
+        imageBg,
+        imageIngredientes,
+        title,
+        text,
+        urlHero
+      }
+    } = props;
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "ingredientes-bloque",
+      style: {
+        height: `${450}px`,
+        backgroundImage: `url(${imageBg}`
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "contenido-ingredientes"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "texto-ingredientes"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", {
+      className: "titulo"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+      value: title
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "text"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+      value: text
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: urlHero,
+      className: "boton boton-secundario"
+    }, "Leer M\xE1s"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "imagen-ingredientes"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: imageIngredientes
+    }))));
+  }
+});
+
+/***/ }),
+
 /***/ "./src/menu/index.js":
 /*!***************************!*\
   !*** ./src/menu/index.js ***!
@@ -2037,6 +2240,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menu */ "./src/menu/index.js");
 /* harmony import */ var _galeria__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./galeria */ "./src/galeria/index.js");
 /* harmony import */ var _hero__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./hero */ "./src/hero/index.js");
+/* harmony import */ var _ingredientes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ingredientes */ "./src/ingredientes/index.js");
+
 
 
 
