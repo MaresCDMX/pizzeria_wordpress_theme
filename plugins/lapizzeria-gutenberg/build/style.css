@@ -292,3 +292,64 @@ html :where(img[class*="wp-image-"]) {
     width: 70% !important;
   }
 }
+
+/** Estilos para el bloque contenedor */
+
+.bloque-contenedor {
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+
+.contenido-bloque {
+  padding: 5rem 0;
+}
+
+@media (min-width: 768px) {
+  .contenido-bloque {
+    min-height: 60rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+  }
+}
+
+.bloques-internos {
+  padding: 3rem;
+  margin: 2rem;
+  background-color: rgb(255, 255, 255, 0.8);
+}
+
+.bloques-internos p {
+  color: black;
+}
+
+@media (min-width: 768px) {
+  .bloques-internos {
+    grid-column: 2 / 3;
+  }
+}
+
+.wpcf7-form p label {
+  font-size: 2rem;
+}
+
+.bloques-internos .wpcf7-form-control {
+  padding: 2rem !important;
+  border: 1px solid var(--grisClaro) !important;
+  width: 70%;
+}
+
+.wpcf7-form-control.has-spinner.wpcf7-submit.boton.boton-primario {
+  width: 90%;
+}
+
+@media (min-width: 768px) {
+  .wpcf7-form-control.has-spinner.wpcf7-submit.boton.boton-primario {
+    width: 83%;
+  }
+}
+
+.ubicacion {
+  text-align: center;
+  color: var(--rojo);
+}

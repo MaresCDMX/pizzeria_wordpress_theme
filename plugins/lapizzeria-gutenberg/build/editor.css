@@ -132,3 +132,7 @@ html :where(.editor-styles-wrapper) select {
   font-size: 1.2rem;
 
 }
+
+.contenido-bloque .components-button.has-icon .dashicon {
+  color: var(--negro) !important;
+}

@@ -1405,6 +1405,106 @@ registerBlockType("lapizzeria/boxes", {
 
 /***/ }),
 
+/***/ "./src/contenedor/index.js":
+/*!*********************************!*\
+  !*** ./src/contenedor/index.js ***!
+  \*********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../logo.svg */ "./src/logo.svg");
+
+const {
+  registerBlockType
+} = wp.blocks;
+const {
+  MediaUpload,
+  InnerBlocks
+} = window.wp.blockEditor;
+const {
+  IconButton
+} = window.wp.components; //Logo para el bloque
+
+
+registerBlockType("lapizzeria/contenedor", {
+  title: "Pizzeria Contenedor",
+  icon: {
+    src: _logo_svg__WEBPACK_IMPORTED_MODULE_1__.ReactComponent
+  },
+  category: "lapizzeria",
+  attributes: {
+    imageBg: {
+      type: "string",
+      selector: ".bloque-contenedor"
+    }
+  },
+  edit: props => {
+    const {
+      attributes: {
+        imageBg
+      },
+      setAttributes
+    } = props;
+
+    const onSelectImage = newImage => {
+      setAttributes({
+        imageBg: newImage.sizes.full.url
+      });
+    };
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "bloque-contenedor",
+      style: {
+        backgroundImage: `url(${imageBg}`
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "contenido-bloque"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "imagen-fondo"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+      onSelect: onSelectImage,
+      type: "image",
+      render: _ref => {
+        let {
+          open
+        } = _ref;
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(IconButton, {
+          className: "lapizzeria-agregar-imagen",
+          onClick: open,
+          icon: "format-image",
+          showTooltip: "true",
+          label: "Seleccionar imagen"
+        });
+      }
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "bloques-internos"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks, null))));
+  },
+  save: props => {
+    const {
+      attributes: {
+        imageBg
+      }
+    } = props;
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "bloque-contenedor",
+      style: {
+        backgroundImage: `url(${imageBg}`
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "contenido-bloque"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "imagen-fondo"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "bloques-internos"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks.Content, null))));
+  }
+});
+
+/***/ }),
+
 /***/ "./src/galeria/index.js":
 /*!******************************!*\
   !*** ./src/galeria/index.js ***!
@@ -2241,6 +2341,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _galeria__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./galeria */ "./src/galeria/index.js");
 /* harmony import */ var _hero__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./hero */ "./src/hero/index.js");
 /* harmony import */ var _ingredientes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ingredientes */ "./src/ingredientes/index.js");
+/* harmony import */ var _contenedor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./contenedor */ "./src/contenedor/index.js");
+
 
 
 
